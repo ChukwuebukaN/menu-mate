@@ -2,7 +2,7 @@
 <h3 align='center'>Menu Mate Platform, a React PWA Project.</h3>
 <br/>
 <p align="center">
-  <img width="400" height="400" src="https://user-images.githubusercontent.com/64613243/174580581-53464e9b-2187-4ca8-ba34-f2a353f8ff1d.png">
+  <img width="400" height="400" src="https://user-images.githubusercontent.com/64613243/219381656-87e3b74e-28ab-4fae-88e0-9cf7782d1f4b.png">
 </p>
 <br/>
 <h1>Getting started</h1>
