@@ -4,9 +4,9 @@
 	"display": "standalone",
 	"scope": "/",
 	"start_url": ".",
-	"name": "Menu Mate!",
-	"short_name": "Menu Mate!",
-	"description": "Menu Mate • A step closer to satisfying your cravings...",
+	"name": "Menu Mate",
+	"short_name": "Menu Mate",
+	"description": "Menu Mate • Satisfy your cravings...",
 	"icons": [
 		{
 			"src": "/icons/icon-192-maskable.png",

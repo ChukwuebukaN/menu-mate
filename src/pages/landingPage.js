@@ -14,13 +14,13 @@ function LandingPage() {
     const ac = new AbortController();
 
     document.title = "Menu Mate • A step closer to satisfying your cravings...";
-    metaTagsAdder("name='og:title'", document.title);
+    metaTagsAdder("property='og:title'", document.title);
     metaTagsAdder(
-      "name='og:Image'",
-      "https://res.cloudinary.com/duzyakdkh/image/upload/v1676818487/citrone-landing-page-s1_xba6dl.png"
+      "property='og:Image'",
+      "https://res.cloudinary.com/dtbhsztdp/image/upload/v1677076354/get-started-page-image_y7nvdo.png"
     );
     metaTagsAdder(
-      "name='og:Description'",
+      "property='og:Description'",
       "Menu Mate • gives you fresh access to restaurants menu. sign Up for a free account today!"
     );
 
