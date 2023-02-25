@@ -1,3 +1,8 @@
+/* eslint-disable no-console */
+/* eslint-disable array-callback-return */
+/* eslint-disable consistent-return */
+/* eslint-disable func-names */
+/* eslint-disable vars-on-top */
 /* eslint-disable prefer-template */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable prefer-regex-literals */
@@ -73,16 +78,77 @@ self.addEventListener("message", (event) => {
   }
 });
 
-// Any other custom service worker logic can go here.
-// self.addEventListener("fetch", (event) => {
-//   event.respondWith(
-//     // eslint-disable-next-line func-names
-//     (async function () {
-//       try {
-//         return await fetch(event.request);
-//       } catch (err) {
-//         return caches.match(event.request);
-//       }
-//     })()
-//   );
-// });
+// Service worker Network falling back to cache strategy
+self.addEventListener("fetch", (event) => {
+  event.respondWith(
+    (async function () {
+      try {
+        return await fetch(event.request);
+      } catch (err) {
+        return caches.match(event.request);
+      }
+    })()
+  );
+});
+
+// Add version and name variables
+const version = "v1"; // increase for new version
+const staticCacheName = version + "_pwa-static";
+const dynamicCacheName = version + "_pwa-dynamic";
+// Delete caches, when their names do not fit the current version
+self.addEventListener("activate", function (event) {
+  event.waitUntil(
+    caches.keys().then(function (cacheNames) {
+      return Promise.all(
+        cacheNames
+          .filter(function (cacheName) {
+            if (
+              !cacheName.startsWith(staticCacheName) &&
+              !cacheName.startsWith(dynamicCacheName)
+            ) {
+              return true;
+            }
+          })
+          .map(function (cacheName) {
+            console.log("Removing old cache.", cacheName);
+            return caches.delete(cacheName);
+          })
+      );
+    })
+  );
+});
+// In order to make this work for iOS safari browsers and 'bookmarked' PWAs too
+self.addEventListener("activate", function (event) {
+  event.waitUntil(
+    caches.keys().then(function (cacheNames) {
+      return Promise.all(
+        cacheNames
+          .filter(function (cacheName) {
+            if (
+              !cacheName.startsWith(staticCacheName) &&
+              !cacheName.startsWith(dynamicCacheName)
+            ) {
+              return true;
+            }
+          })
+          .map(function (cacheName) {
+            // completely deregister for ios to get changes too
+            console.log("deregistering Serviceworker");
+            if ("serviceWorker" in navigator) {
+              navigator.serviceWorker
+                .getRegistrations()
+                .then(function (registrations) {
+                  registrations.map((r) => {
+                    r.unregister();
+                  });
+                });
+              window.location.reload(true);
+            }
+
+            console.log("Removing old cache.", cacheName);
+            return caches.delete(cacheName);
+          })
+      );
+    })
+  );
+});
