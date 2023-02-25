@@ -5,18 +5,19 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        graphikBold: "'GraphikBold', serif",
-        graphikLight: "'GraphikLight', serif",
-        graphikMedium: "'GraphikMedium', serif",
-        graphikRegular: "'GraphikRegular', serif",
-        graphikSemibold: "'GraphikSemibold', serif",
+        plusJakartaSans: ["Plus Jakarta Sans"],
+        lato: ["Lato"],
       },
       spacing: {
         is01px: "1px",
         529: "529px",
+        menuMateButtonWidth: "319px",
+        menuMateButtonHeight: "53px",
       },
       colors: {
-        "yourproject-red": "#ED2025",
+        menuMateTextGrey: "#575757",
+        menuMateOrange: "#FF8C4F",
+        menuMateDeepOrange: "#FF7C37",
       },
     },
   },

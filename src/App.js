@@ -1,13 +1,12 @@
 import React from "react";
 import Routers from "./helpers/routers";
-import AlertBox from "./components/pwa-update-alert/pwa-update-box";
+import { ToastAlertContextProvider } from "./contexts/ToastAlertContext";
 
 function App() {
   return (
-    <>
-      <AlertBox />
+    <ToastAlertContextProvider>
       <Routers />
-    </>
+    </ToastAlertContextProvider>
   );
 }
 

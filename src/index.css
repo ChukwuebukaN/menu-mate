@@ -4,10 +4,8 @@
 @import-normalize;
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  background-color: #fafafa;
+  font-family: "Plus Jakarta Sans", "Lato";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -15,4 +13,97 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/* 
+Font Weight	Numerical Weight
+"Thin", "Hairline"	100
+"Extra Light", "Ultra Light"	200
+"Light", "Book"	300
+"Normal", "Regular", "Roman", "Standard", "Plain"	400/Normal
+"Medium", "Demi"	500
+"Semi Bold", "Semi Bld", "Demi Bold", "Demi Bld"	600
+"Bold", "Bld"	700/Bold
+"Extra Bold", "Ultra Bold", "Extra Bld", "Ultra Bld"	800
+"Black", "Heavy", "Ultra", "Fat", "Poster", "Ultra Black" 	 900 
+*/
+
+.btn-loading {
+  animation-name: btn-loading;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes btn-loading {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+  border-radius: 20px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #ececec;
+  border-radius: 20px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a8bbbf;
+}
+
+.PhoneInput {
+  display: flex;
+  align-items: center;
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 14px;
+  color: #000;
+  padding: 10px;
+  margin-top: 4px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.PhoneInputCountrySelect {
+  width: 110px;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+.PhoneInputCountry {
+  display: flex;
+}
+.PhoneInputCountryIcon {
+  display: flex;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.PhoneInputCountryIcon--border {
+  border-right: 2px;
+  border-color: #a8bbbf;
+}
+.PhoneInputInput {
+  width: 100%;
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 14px;
+  color: #000;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
