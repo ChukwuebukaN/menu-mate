@@ -26,4 +26,3 @@ A documentation for the frontend development of Menu Mate Platform.
   <li>React Router</li>
   <li>etc.</li>
 </ul>
-

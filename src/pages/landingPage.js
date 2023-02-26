@@ -39,9 +39,7 @@ function LandingPage() {
         />
         <div className="absolute flex justify-center items-end bottom-[10%] w-full h-full">
           <div>
-            <p className="font-[700] text-3xl text-center mb-20 px-6 text-white">
-              Have access to Restaurants Menu!
-            </p>
+            <p className="font-[700] text-3xl text-center mb-20 px-6 text-white">Have access to Restaurants Menu!</p>
             <div className="flex justify-center">
               <Buttons
                 specificButtonTitle="Get Started"

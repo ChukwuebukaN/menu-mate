@@ -9,10 +9,7 @@ function Inputs({
   specificInputStyling,
 }) {
   return (
-    <label
-      className="block text-gray-700 text-sm mb-2 leading-5"
-      htmlFor={specificInputId}
-    >
+    <label className="block text-gray-700 text-sm mb-2 leading-5" htmlFor={specificInputId}>
       <input
         id={specificInputId}
         type={specificInputType}

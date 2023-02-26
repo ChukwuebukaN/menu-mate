@@ -7,6 +7,10 @@ import { ReactComponent as LoadingIcon } from "../assets/svg/loading-icon-menuma
 import LandingPage from "../pages/landingPage";
 
 const LazySignUp = React.lazy(() => import("../pages/signUp"));
+const LazySignUpRestaurant = React.lazy(() => import("../pages/signUpRestaurant"));
+const LazyLogIn = React.lazy(() => import("../pages/logIn"));
+const LazyForgotPassword = React.lazy(() => import("../pages/forgotPassword"));
+const LazyVerifyOtpForgotPassword = React.lazy(() => import("../pages/verifyOtpForgotPassword"));
 
 // import LoadingIconBlack from "../assets/svg/the-frenzy-icon-transparent-white.png";
 // <img src={LoadingIconBlack} alt="The-Frenzy Icon" />
@@ -46,19 +50,16 @@ function Routers() {
     <div>
       <AnimatePresence>
         {isImageVisible ? (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
             {landingPageImageFadeOutMobile()}
           </motion.div>
         ) : (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             {location.pathname === NonAuthRoutes.landingPage ||
             location.pathname === NonAuthRoutes.signup ||
-            location.pathname === NonAuthRoutes.completeSignup ||
+            location.pathname === NonAuthRoutes.signupRestaurant ||
             location.pathname === NonAuthRoutes.login ||
+            location.pathname === NonAuthRoutes.verifyOtpForgotPassword ||
             location.pathname === NonAuthRoutes.forgotPassword ? (
               <div className="dark:bg-black">
                 <Suspense
@@ -69,26 +70,12 @@ function Routers() {
                   }
                 >
                   <Routes>
-                    <Route
-                      path={NonAuthRoutes.landingPage}
-                      element={<LandingPage />}
-                    />
-                    <Route
-                      path={NonAuthRoutes.signup}
-                      element={<LazySignUp />}
-                    />
-                    {/* <Route
-								path={NonAuthRoutes.complete}
-								// element={lazyCompleteSignUp}
-							/>
-							<Route
-								path={NonAuthRoutes.login}
-								// element={lazyLogin}
-							/>
-							<Route
-								path={NonAuthRoutes.forgotPassword}
-								// element={lazyForgotPassword}
-							/> */}
+                    <Route path={NonAuthRoutes.landingPage} element={<LandingPage />} />
+                    <Route path={NonAuthRoutes.signup} element={<LazySignUp />} />
+                    <Route path={NonAuthRoutes.signupRestaurant} element={<LazySignUpRestaurant />} />
+                    <Route path={NonAuthRoutes.login} element={<LazyLogIn />} />
+                    <Route path={NonAuthRoutes.forgotPassword} element={<LazyForgotPassword />} />
+                    <Route path={NonAuthRoutes.verifyOtpForgotPassword} element={<LazyVerifyOtpForgotPassword />} />
                   </Routes>
                 </Suspense>
               </div>

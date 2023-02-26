@@ -5,17 +5,16 @@ import { useNavigate } from "react-router-dom";
 import Buttons from "../components/buttons/buttons";
 import Inputs from "../components/inputs/inputs";
 import { NonAuthRoutes } from "../helpers/urls";
-// import countryCodeDropDown from "../../components/countryCode/countryCode";/
-// import { useToastAlertContext } from "../contexts/ToastAlertContext";
+import { ReactComponent as LocationIcon } from "../assets/svg/location-icon.svg";
 import { ReactComponent as PasswordShow } from "../assets/svg/eyes-opened-icon.svg";
 import { ReactComponent as PasswordHide } from "../assets/svg/eyes-closed-icon.svg";
 
-function SignUp() {
+function SignUpRestaurant() {
   const navigate = useNavigate();
   // const { show } = useContext(useToastAlertContext);
   // const [isImageVisible, setImageVisible] = useState(true);
-  const [userFirstName, setUserFirstName] = useState("");
-  const [userLastName, setUserLastName] = useState("");
+  const [restaurantName, setRestaurantName] = useState("");
+  const [restaurantLocation, setRestaurantLocation] = useState("");
   const [userMobileNumber, setUserMobileNumber] = useState("");
   // const [userCountry, setUserCountry] = useState("");
   const [userEmailAddress, setUserEmailAddress] = useState("");
@@ -53,44 +52,51 @@ function SignUp() {
     setUserConfirmPassword(text);
   };
 
-  /** handles User Sign Up and Stores user details to Redux */
-  const handleSignUp = (e) => {
+  /** handles Restaurant Sign Up and Stores user details to Redux */
+  const handleRestaurantSignUp = (e) => {
     e.preventDefault();
     // setBtnIsLoading(true);
   };
 
   /** Displays Sign Up Component */
-  const signUpComponent = () => {
+  const signUpRestaurantComponent = () => {
     return (
       <div className="flex justify-center h-screen w-full">
         <div className="mt-20 w-full mx-7">
           <p className="text-2xl font-lato font-[700]">Let’s get you started</p>
           <p className="mt-2 text-base font-lato font-[400] text-menuMateTextGrey">
-            Sign up to get access to Menu Mate features
+            Sign up to get your restaurant onboarded on Menu Mate.
           </p>
 
-          <form onSubmit={() => handleSignUp()}>
+          <form onSubmit={() => handleRestaurantSignUp()}>
             <div className="mt-16 w-full">
-              <p className="text-sm leading-4 font-lato font-[600]">First Name</p>
+              <p className="text-sm leading-4 font-lato font-[600]">Restaurant Name</p>
               <Inputs
-                specificInputId="firstName"
+                specificInputId="restaurantName"
                 specificInputType="text"
-                specificInputValue={userFirstName}
-                specificInputPlaceholder="Enter your first name"
-                specificInputOnChange={(e) => setUserFirstName(e.target.value)}
+                specificInputValue={restaurantName}
+                specificInputPlaceholder="Enter your restaurant name"
+                specificInputOnChange={(e) => setRestaurantName(e.target.value)}
                 specificInputStyling=""
               />
             </div>
             <div className="mt-4 w-full">
-              <p className="text-sm leading-4 font-lato font-[600]">Last Name</p>
-              <Inputs
-                specificInputId="lastName"
-                specificInputType="text"
-                specificInputValue={userLastName}
-                specificInputPlaceholder="Enter your last name"
-                specificInputOnChange={(e) => setUserLastName(e.target.value)}
-                specificInputStyling=""
-              />
+              <p className="text-sm leading-4 font-lato font-[600]">Restaurant Location</p>
+              <div className="flex justify-end w-full">
+                <div className="w-full">
+                  <Inputs
+                    specificInputId="location"
+                    specificInputType="text"
+                    specificInputValue={restaurantLocation}
+                    specificInputPlaceholder="Enter your restaurant location"
+                    specificInputOnChange={(e) => setRestaurantLocation(e.target.value)}
+                    specificInputStyling="pl-10"
+                  />
+                </div>
+                <div>
+                  <LocationIcon title="Location" className="absolute mt-[19px] left-10 cursor-pointer" />
+                </div>
+              </div>
             </div>
             <div className="mt-4 w-full">
               <p className="text-sm leading-4 font-lato font-[600]">Mobile Number</p>
@@ -182,20 +188,20 @@ function SignUp() {
             <div className="mt-12 w-full flex justify-center">
               <div>
                 <Buttons
-                  specificButtonTitle="Create Account"
-                  specificButtonText="Create Account"
+                  specificButtonTitle="Create Restaurant"
+                  specificButtonText="Create Restaurant"
                   specificButtonClick={() => navigate(NonAuthRoutes.login)}
                   specificButtonStyling="font-[200] rounded-xl "
                 />
                 <p className="text-center mt-5 mb-20 text-sm leading-4 font-lato font-[400]">
-                  Own a restaurant?{" "}
+                  Not a restaurant?{" "}
                   <button
                     type="button"
-                    title="Register as a restaurant"
+                    title="Register as a user"
                     className="text-menuMateOrange cursor-pointer font-[700]"
-                    onClick={() => navigate(NonAuthRoutes.signupRestaurant)}
+                    onClick={() => navigate(NonAuthRoutes.signup)}
                   >
-                    Register as a restaurant
+                    Register as a user
                   </button>
                 </p>
               </div>
@@ -208,9 +214,9 @@ function SignUp() {
 
   return (
     <div>
-      <div>{signUpComponent()}</div>
+      <div>{signUpRestaurantComponent()}</div>
     </div>
   );
 }
 
-export default SignUp;
+export default SignUpRestaurant;
