@@ -1,13 +1,6 @@
 /* eslint-disable func-names */
 /* eslint-disable no-shadow */
-import React, {
-  useEffect,
-  useCallback,
-  useContext,
-  useState,
-  createContext,
-  useRef,
-} from "react";
+import React, { useEffect, useCallback, useContext, useState, createContext, useRef } from "react";
 
 const initialToast = {
   message: "",

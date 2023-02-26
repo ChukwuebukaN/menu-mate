@@ -16,11 +16,7 @@ function AlertBox() {
   const isServiceWorkerUpdated = localStorage.getItem("pwaHasUpdates");
   const isServiceWorkerInitialized = localStorage.getItem("pwaSWInitialized");
   // eslint-disable-next-line no-console
-  console.log(
-    "All SW Stuff =",
-    isServiceWorkerInitialized,
-    isServiceWorkerUpdated
-  );
+  console.log("All SW Stuff =", isServiceWorkerInitialized, isServiceWorkerUpdated);
 
   /** Handles the Service Worker function that triggers the reload of current page  */
   // const updateServiceWorker = () => {

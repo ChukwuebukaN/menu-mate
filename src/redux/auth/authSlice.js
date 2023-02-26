@@ -17,11 +17,7 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     userNotifications(state, action) {
-      const {
-        serviceWorkerInitialized,
-        serviceWorkerUpdated,
-        serviceWorkerRegistration,
-      } = action.payload;
+      const { serviceWorkerInitialized, serviceWorkerUpdated, serviceWorkerRegistration } = action.payload;
 
       state.serviceWorkerInitialized = serviceWorkerInitialized;
       state.serviceWorkerUpdated = serviceWorkerUpdated;
@@ -48,21 +44,14 @@ const authSlice = createSlice({
   },
 });
 
-export const serviceWorkerInitialized = (state) =>
-  state.auth.serviceWorkerInitialized;
+export const serviceWorkerInitialized = (state) => state.auth.serviceWorkerInitialized;
 export const serviceWorkerUpdated = (state) => state.auth.serviceWorkerUpdated;
-export const serviceWorkerRegistration = (state) =>
-  state.auth.serviceWorkerRegistration;
+export const serviceWorkerRegistration = (state) => state.auth.serviceWorkerRegistration;
 export const userTitleInitial = (state) => state.auth.userTitle;
 export const emailFromFirstPage = (state) => state.auth.userEmail;
 export const pwFromFirstPage = (state) => state.auth.userPw;
 export const userIsSignedIn = (state) => state.auth.isSignedIn;
 export const accessToken = (state) => state.auth.token;
-export const {
-  userNotifications,
-  userFirstPageRegistration,
-  loginUser,
-  signupUser,
-} = authSlice.actions;
+export const { userNotifications, userFirstPageRegistration, loginUser, signupUser } = authSlice.actions;
 
 export default authSlice.reducer;

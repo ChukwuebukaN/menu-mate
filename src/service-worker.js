@@ -58,8 +58,7 @@ registerRoute(
 // precache, in this case same-origin .png requests like those from in public/
 registerRoute(
   // Add in any other file extensions or routing criteria as needed.
-  ({ url }) =>
-    url.origin === self.location.origin && url.pathname.endsWith(".png"), // Customize this strategy as needed, e.g., by changing to CacheFirst.
+  ({ url }) => url.origin === self.location.origin && url.pathname.endsWith(".png"), // Customize this strategy as needed, e.g., by changing to CacheFirst.
   new StaleWhileRevalidate({
     cacheName: "images",
     plugins: [
@@ -92,7 +91,7 @@ self.addEventListener("fetch", (event) => {
 });
 
 // Add version and name variables
-const version = "v1"; // increase for new version
+const version = "v2"; // increase for new version
 const staticCacheName = version + "_pwa-static";
 const dynamicCacheName = version + "_pwa-dynamic";
 // Delete caches, when their names do not fit the current version
@@ -102,10 +101,7 @@ self.addEventListener("activate", function (event) {
       return Promise.all(
         cacheNames
           .filter(function (cacheName) {
-            if (
-              !cacheName.startsWith(staticCacheName) &&
-              !cacheName.startsWith(dynamicCacheName)
-            ) {
+            if (!cacheName.startsWith(staticCacheName) && !cacheName.startsWith(dynamicCacheName)) {
               return true;
             }
           })
@@ -124,10 +120,7 @@ self.addEventListener("activate", function (event) {
       return Promise.all(
         cacheNames
           .filter(function (cacheName) {
-            if (
-              !cacheName.startsWith(staticCacheName) &&
-              !cacheName.startsWith(dynamicCacheName)
-            ) {
+            if (!cacheName.startsWith(staticCacheName) && !cacheName.startsWith(dynamicCacheName)) {
               return true;
             }
           })
@@ -135,13 +128,11 @@ self.addEventListener("activate", function (event) {
             // completely deregister for ios to get changes too
             console.log("deregistering Serviceworker");
             if ("serviceWorker" in navigator) {
-              navigator.serviceWorker
-                .getRegistrations()
-                .then(function (registrations) {
-                  registrations.map((r) => {
-                    r.unregister();
-                  });
+              navigator.serviceWorker.getRegistrations().then(function (registrations) {
+                registrations.map((r) => {
+                  r.unregister();
                 });
+              });
               window.location.reload(true);
             }
 

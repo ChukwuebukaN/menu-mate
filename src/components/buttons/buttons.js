@@ -1,11 +1,6 @@
 import React from "react";
 
-function Buttons({
-  specificButtonTitle,
-  specificButtonText,
-  specificButtonClick,
-  specificButtonStyling,
-}) {
+function Buttons({ specificButtonTitle, specificButtonText, specificButtonClick, specificButtonStyling }) {
   return (
     <button
       type="button"
