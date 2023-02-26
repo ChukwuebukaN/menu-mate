@@ -11,8 +11,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 /* 
@@ -79,7 +78,7 @@ Font Weight	Numerical Weight
   border-radius: 5px;
 }
 .PhoneInputCountrySelect {
-  width: 110px;
+  width: 70px;
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
